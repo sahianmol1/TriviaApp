@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nameInfoFragment">
+
+    <fragment
+        android:id="@+id/nameInfoFragment"
+        android:name="com.example.triviaapp.ui.fragments.NameInfoFragment"
+        android:label="fragment_name_info"
+        tools:layout="@layout/fragment_name_info" >
+        <action
+            android:id="@+id/action_nameInfoFragment_to_bestCricketerFragment"
+            app:destination="@id/bestCricketerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bestCricketerFragment"
+        android:name="com.example.triviaapp.ui.fragments.BestCricketerFragment"
+        android:label="fragment_best_cricketer"
+        tools:layout="@layout/fragment_best_cricketer" >
+        <action
+            android:id="@+id/action_bestCricketerFragment_to_indianFlagFragment"
+            app:destination="@id/indianFlagFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/indianFlagFragment"
+        android:name="com.example.triviaapp.ui.fragments.IndianFlagFragment"
+        android:label="fragment_indian_flag"
+        tools:layout="@layout/fragment_indian_flag" >
+        <action
+            android:id="@+id/action_indianFlagFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
+        <argument
+            android:name="triviaInfo"
+            app:argType="com.example.triviaapp.data.Trivia" />
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.example.triviaapp.ui.fragments.summary.SummaryFragment"
+        android:label="fragment_summary"
+        tools:layout="@layout/fragment_summary" >
+        <action
+            android:id="@+id/action_summaryFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <argument
+            android:name="triviaInfo"
+            app:argType="com.example.triviaapp.data.Trivia" />
+        <action
+            android:id="@+id/action_summaryFragment_to_nameInfoFragment"
+            app:destination="@id/nameInfoFragment"
+            app:popUpTo="@+id/nameInfoFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.triviaapp.ui.fragments.history.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+</navigation>
